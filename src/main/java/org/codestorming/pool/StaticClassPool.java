@@ -81,7 +81,7 @@ public class StaticClassPool {
 	 */
 	public static <T extends TypedPoolObject> void referencePool(Class<T> type,
 			ObjectPool.ObjectFactory<T> objectFactory) {
-		ObjectPool<T> newPool = new ObjectPool<T>(objectFactory);
+		ObjectPool<T> newPool = new ObjectPool<>(objectFactory);
 		try {
 			LOCK.writeLock().lock();
 			ObjectPool<?> oldPool = pools.put(type, newPool);
